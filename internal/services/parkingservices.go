@@ -9,7 +9,7 @@ type ParkingServices struct {
 	parkinglot *models.ParkingLot
 }
 
-func (s *ParkingServices) createParkingLot(capacity int) {
+func (s *ParkingServices) CreateParkingLot(capacity int) {
 	s.parkinglot = &models.ParkingLot{
 		Capacity: capacity,
 		Slots:    make([]models.Slot, capacity),
@@ -22,7 +22,7 @@ func (s *ParkingServices) createParkingLot(capacity int) {
 	}
 }
 
-func (s *ParkingServices) parkCar(Regnum string, Color string) int {
+func (s *ParkingServices) ParkCar(Regnum string, Color string) int {
 	//if no slot is available return -1
 	if s.parkinglot == nil {
 		return -1
@@ -41,7 +41,7 @@ func (s *ParkingServices) parkCar(Regnum string, Color string) int {
 	return -1
 }
 
-func (s *ParkingServices) leavecar(Slotnum int) int {
+func (s *ParkingServices) LeaveCar(Slotnum int) int {
 	if s.parkinglot == nil {
 		fmt.Println("Parking lot not created")
 		return -1
@@ -62,7 +62,7 @@ func (s *ParkingServices) leavecar(Slotnum int) int {
 	return 1
 }
 
-func (s *ParkingServices) status() {
+func (s *ParkingServices) Status() {
 	// checking all the occupied slots and printing the details
 	if s.parkinglot == nil {
 		fmt.Println("Parking lot is not created")
@@ -78,7 +78,7 @@ func (s *ParkingServices) status() {
 
 }
 
-func (s *ParkingServices) getRegNumByColor(Color string) {
+func (s *ParkingServices) GetRegNumByColor(Color string) {
 	//checking all the slots and printing the registration number of cars with given color
 	if s.parkinglot == nil {
 		fmt.Println("Parking lot is not created")
@@ -97,7 +97,7 @@ func (s *ParkingServices) getRegNumByColor(Color string) {
 	}
 }
 
-func (s *ParkingServices) getSlotNumByColor(Color string) {
+func (s *ParkingServices) GetSlotNumByColor(Color string) {
 	if s.parkinglot == nil {
 		fmt.Println("Parking lot is not created")
 		return
@@ -115,7 +115,7 @@ func (s *ParkingServices) getSlotNumByColor(Color string) {
 	}
 }
 
-func (s *ParkingServices) getSlotNumByRegNum(Regnum string) {
+func (s *ParkingServices) GetSlotNumByRegNum(Regnum string) {
 	if s.parkinglot == nil {
 		fmt.Println("Parking lot is not created")
 		return

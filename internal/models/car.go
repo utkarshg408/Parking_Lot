@@ -1,6 +1,6 @@
 package models
 
 type Car struct {
-	regnum string
-	color  string
+	RegNum string
+	Color  string
 }

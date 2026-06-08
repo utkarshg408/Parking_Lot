@@ -1,6 +1,6 @@
 package models
 
-type Parkinglot struct {
-	capacity int
-	slots    []Slot
+type ParkingLot struct {
+	Capacity int
+	Slots    []Slot
 }

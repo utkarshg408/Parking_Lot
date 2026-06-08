@@ -1,6 +1,6 @@
 package models
 
 type Slot struct {
-	slotnum int
-	car     *Car
+	Slotnum int
+	Car     *Car
 }

@@ -1,1 +1,18 @@
+create_parking_lot 10
+park RJ-01-JP-10 white 
+park RJ-01-JP-11 black
+park RJ-01-JP-12 white
+park RJ-01-JP-13 red
+park RJ-01-JP-14 black
+park RJ-01-JP-15 blue
+
+status
+leave 1
+park RJ-01-JP-16 white
+slot_number_for_registration_number RJ-01-JP-16
+leave 4
+status 
+registration_numbers_for_cars_with_colour white
+slot_numbers_for_cars_with_colour red
+slot_number_for_registration_number RJ-01-JP-13
 

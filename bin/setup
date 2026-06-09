@@ -1,1 +1,30 @@
+#!/bin/bash
 
+echo "================================="
+echo "Parking Lot Setup"
+echo "================================="
+
+echo ""
+echo "Checking Go installation..."
+go version
+
+echo ""
+echo "Downloading dependencies..."
+go mod tidy
+
+echo ""
+echo "Formatting code..."
+go fmt ./...
+
+echo ""
+echo "Running static analysis..."
+go vet ./...
+
+echo ""
+echo "Running tests..."
+go test ./... -v
+
+echo ""
+echo "================================="
+echo "Setup Complete"
+echo "================================="

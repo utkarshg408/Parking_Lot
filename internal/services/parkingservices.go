@@ -10,6 +10,10 @@ type ParkingServices struct {
 }
 
 func (s *ParkingServices) CreateParkingLot(capacity int) {
+	if capacity <= 0 {
+		fmt.Println("Invalid Slots Entered")
+		return
+	}
 	s.parkinglot = &models.ParkingLot{
 		Capacity: capacity,
 		Slots:    make([]models.Slot, capacity),
@@ -25,6 +29,7 @@ func (s *ParkingServices) CreateParkingLot(capacity int) {
 func (s *ParkingServices) ParkCar(Regnum string, Color string) int {
 	//if no slot is available return -1
 	if s.parkinglot == nil {
+		fmt.Println("Parking Lot not created")
 		return -1
 	}
 	// if slot available park the car and return slot number
@@ -69,7 +74,7 @@ func (s *ParkingServices) Status() {
 		return
 	}
 	//anycar is parked
-	fmt.Printf("Slot No.\tRegistration No\tColour\n")
+	fmt.Printf("SlotNo.\tRegNo\tColour\n")
 	for i := 0; i < s.parkinglot.Capacity; i++ {
 		if s.parkinglot.Slots[i].Car != nil {
 			fmt.Printf("%d\t%s\t%s\n", s.parkinglot.Slots[i].Slotnum, s.parkinglot.Slots[i].Car.RegNum, s.parkinglot.Slots[i].Car.Color)

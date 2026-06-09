@@ -8,7 +8,7 @@ import (
 )
 
 type CommandParser struct {
-	services *services.ParkingServices
+	Services *services.ParkingServices
 }
 
 func (cp *CommandParser) ParseCommand(command string) {
@@ -29,7 +29,7 @@ func (cp *CommandParser) ParseCommand(command string) {
 			fmt.Println("Invalid capacity")
 			return
 		}
-		cp.services.CreateParkingLot(capacity)
+		cp.Services.CreateParkingLot(capacity)
 		fmt.Printf("Created a parking lot with %d slots\n", capacity)
 
 	case "park":
@@ -44,7 +44,7 @@ func (cp *CommandParser) ParseCommand(command string) {
 			Color = parts[2]
 		}
 
-		slotnum := cp.services.ParkCar(Regnum, Color)
+		slotnum := cp.Services.ParkCar(Regnum, Color)
 		if slotnum != -1 {
 			fmt.Printf("Allocated slot number: %d\n", slotnum)
 		} else {
@@ -65,10 +65,10 @@ func (cp *CommandParser) ParseCommand(command string) {
 				return
 			}
 		}
-		cp.services.LeaveCar(Slotnum)
+		cp.Services.LeaveCar(Slotnum)
 
 	case "status":
-		cp.services.Status()
+		cp.Services.Status()
 
 	case "registration_numbers_for_cars_with_colour":
 		var Color string
@@ -79,7 +79,7 @@ func (cp *CommandParser) ParseCommand(command string) {
 		if len(parts) >= 2 {
 			Color = parts[1]
 		}
-		cp.services.GetRegNumByColor(Color)
+		cp.Services.GetRegNumByColor(Color)
 
 	case "slot_numbers_for_cars_with_colour":
 		var Color string
@@ -90,7 +90,7 @@ func (cp *CommandParser) ParseCommand(command string) {
 		if len(parts) >= 2 {
 			Color = parts[1]
 		}
-		cp.services.GetSlotNumByColor(Color)
+		cp.Services.GetSlotNumByColor(Color)
 
 	case "slot_number_for_registration_number":
 		var Regnum string
@@ -102,7 +102,7 @@ func (cp *CommandParser) ParseCommand(command string) {
 			Regnum = parts[1]
 
 		}
-		cp.services.GetSlotNumByRegNum(Regnum)
+		cp.Services.GetSlotNumByRegNum(Regnum)
 
 	default:
 		fmt.Println("Invalid command")
